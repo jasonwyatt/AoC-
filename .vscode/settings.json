@@ -1,0 +1,29 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/bazel-bin": true,
+        "**/bazel-Learning": true,
+        "**/bazel-out": true,
+        "**/bazel-testlogs": true,
+    },
+    "explorerExclude.backup": {},
+    "files.associations": {
+        "fstream": "cpp",
+        "istream": "cpp",
+        "new": "cpp",
+        "unordered_set": "cpp",
+        "numbers": "cpp"
+    },
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}/",
+        "--query-driver=**",
+    ],
+    "clangd.checkUpdates": true,
+    "bazel.lsp.command": "/Users/jwf/github/bazel-lsp/bazel-bin/bazel-lsp"
+}

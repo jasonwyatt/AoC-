@@ -1,0 +1,7 @@
+.cache/
+bazel-aoc++
+bazel-bin
+bazel-out
+bazel-testlogs
+.DS_Store
+
