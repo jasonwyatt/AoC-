@@ -7,7 +7,7 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/bazel-bin": true,
-        "**/bazel-Learning": true,
+        "**/bazel-aoc++": true,
         "**/bazel-out": true,
         "**/bazel-testlogs": true,
     },
@@ -24,6 +24,5 @@
         "--compile-commands-dir=${workspaceFolder}/",
         "--query-driver=**",
     ],
-    "clangd.checkUpdates": true,
-    "bazel.lsp.command": "/Users/jwf/github/bazel-lsp/bazel-bin/bazel-lsp"
+    "clangd.checkUpdates": true
 }
