@@ -3,13 +3,13 @@
 
 // Builds a main function that passes a @c std::ifstream to the @c part1Fn and @c part2Fn functions.
 // The @c testpath string literal serves as a default input file location.
-#define MAIN(testpath, part1Fn, part2Fn) \
+#define MAIN(defaultTestPath, part1Fn, part2Fn) \
     int main(int argc, char** argv) { \
         const char* fileName; \
         if (argc > 1) { \
             fileName = argv[1]; \
         } else { \
-            fileName = testpath; \
+            fileName = defaultTestPath; \
         } \
         \
         { \
