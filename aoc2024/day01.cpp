@@ -3,19 +3,14 @@
 #include <math.h>
 #include <algorithm>
 #include <vector>
+
 #include "absl/container/flat_hash_map.h"
 #include "absl/strings/str_split.h"
+#include "tools/main.h"
 
 using namespace std;
 
-void part1(const char* fileName) {
-    ifstream file(fileName);
-
-    if (!file.is_open()) {
-        cerr << "Oops, file " << fileName << " cant be opened." << endl;
-        return;
-    }
-
+void part1(ifstream& file) {
     vector<int> left;
     vector<int> right;
     string line;
@@ -29,8 +24,6 @@ void part1(const char* fileName) {
         right.insert(righti, rightVal);
     }
 
-    file.close();
-
     size_t len = left.size();
     long result = 0;
     for (size_t i = 0; i < len; i++) {
@@ -40,14 +33,7 @@ void part1(const char* fileName) {
     cout << "Part1: " << result  << endl;
 }
 
-void part2(const char* fileName) {
-    ifstream file(fileName);
-
-    if (!file.is_open()) {
-        cerr << "Oops, file " << fileName << " cant be opened." << endl;
-        return;
-    }
-
+void part2(ifstream& file) {
     vector<int> left;
     absl::flat_hash_map<int, int> rightCounts;
     string line;
@@ -62,7 +48,6 @@ void part2(const char* fileName) {
             rightCounts[rightVal] = 1;
         }
     }
-    file.close();
 
     long result = 0;
     size_t len = left.size();
@@ -75,15 +60,4 @@ void part2(const char* fileName) {
     cout << "Part2: " << result << endl;
 }
 
-int main(int argc, const char** argv) {
-    const char* fileName;
-    if (argc > 1) {
-        fileName = argv[1];
-    } else {
-        fileName = "aoc2024/data/day01.txt";
-    }
-
-    part1(fileName);
-    part2(fileName);
-    return 0;
-}
+MAIN("aoc2024/data/day01.txt", part1, part2);

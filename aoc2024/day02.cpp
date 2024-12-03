@@ -4,6 +4,7 @@
 #include <span>
 
 #include "absl/strings/str_split.h"
+#include "tools/main.h"
 
 #define STOI_TRANSFORM [](std::string s) { return std::stoi(s); }
 
@@ -126,31 +127,4 @@ void part2(std::ifstream& file) {
     std::cout << "Part2: " << safeCount << std::endl;
 }
 
-int main(int argc, const char** argv) {
-    const char* fileName;
-    if (argc > 1) {
-        fileName = argv[1];
-    } else {
-        fileName = "aoc2024/data/day01.txt";
-    }
-
-    {
-        std::ifstream file(fileName);
-        if (!file.is_open()) {
-            std::cerr << "Oops, file " << fileName << " cant be opened." << std::endl;
-            return -1;
-        }
-        part1(file);
-        file.close();
-    }
-    {
-        std::ifstream file(fileName);
-        if (!file.is_open()) {
-            std::cerr << "Oops, file " << fileName << " cant be opened." << std::endl;
-            return -1;
-        }
-        part2(file);
-        file.close();
-    }
-    return 0;
-}
+MAIN("aoc2024/data/day02.txt", part1, part2);

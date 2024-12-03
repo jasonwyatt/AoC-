@@ -1,8 +1,9 @@
 #include <fstream>
 #include <iostream>
-#include <iterator>
 #include <regex>
 #include <string>
+
+#include "tools/main.h"
 
 void part1(std::ifstream& file) {
     std::regex pattern("mul\\(([\\d]{1,3}),([\\d]{1,3})\\)");
@@ -41,31 +42,4 @@ void part2(std::ifstream& file) {
     std::cout << "Part2: " << result << std::endl;
 }
 
-int main(int argc, char** argv) {
-    const char* fileName;
-    if (argc > 1) {
-        fileName = argv[1];
-    } else {
-        fileName = "aoc2024/data/day03.txt";
-    }
-
-    {
-        std::ifstream file(fileName);
-        if (!file.is_open()) {
-            std::cerr << "Oops, file " << fileName << " cant be opened." << std::endl;
-            return -1;
-        }
-        part1(file);
-        file.close();
-    }
-    {
-        std::ifstream file(fileName);
-        if (!file.is_open()) {
-            std::cerr << "Oops, file " << fileName << " cant be opened." << std::endl;
-            return -1;
-        }
-        part2(file);
-        file.close();
-    }
-    return 0;
-}
+MAIN("aoc2024/data/day03.txt", part1, part2);
