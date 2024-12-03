@@ -1,4 +1,5 @@
 .cache/
+compile_commands.json
 bazel-aoc++
 bazel-bin
 bazel-out

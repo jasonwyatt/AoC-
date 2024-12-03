@@ -21,3 +21,10 @@ bazel-bin/aoc2024/day01 aoc2024/data/day01.txt
 ```
 bazel run //aoc2024:day01 -- $PWD/aoc2024/data/day01.txt
 ```
+
+## Generate Compile Commands (for Code Completion in VSCode)
+
+```
+bazel run //:refresh_compile_commands
+```
+
