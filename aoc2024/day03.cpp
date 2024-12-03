@@ -3,9 +3,13 @@
 #include <regex>
 #include <string>
 
+#include "tools/log.h"
 #include "tools/main.h"
 
 void part1(std::ifstream& file) {
+    DEBUG("test");
+    WARN("test warning");
+    ERROR("test error");
     std::regex pattern("mul\\(([\\d]{1,3}),([\\d]{1,3})\\)");
     std::string line;
     uint32_t result = 0;
@@ -42,4 +46,4 @@ void part2(std::ifstream& file) {
     std::cout << "Part2: " << result << std::endl;
 }
 
-MAIN("aoc2024/data/day03.txt", part1, part2);
+MAIN(part1, part2);

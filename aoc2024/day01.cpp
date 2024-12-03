@@ -60,4 +60,4 @@ void part2(ifstream& file) {
     cout << "Part2: " << result << endl;
 }
 
-MAIN("aoc2024/data/day01.txt", part1, part2);
+MAIN(part1, part2);

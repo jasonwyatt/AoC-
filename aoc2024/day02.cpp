@@ -127,4 +127,4 @@ void part2(std::ifstream& file) {
     std::cout << "Part2: " << safeCount << std::endl;
 }
 
-MAIN("aoc2024/data/day02.txt", part1, part2);
+MAIN(part1, part2);
