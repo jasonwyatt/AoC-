@@ -25,3 +25,12 @@ cc_binary(
         "@abseil-cpp//absl/strings",
     ],
 )
+
+cc_binary(
+    name = "day04",
+    srcs = ["day04.cpp"],
+    deps = [
+        "//tools",
+        "@abseil-cpp//absl/strings",
+    ],
+)

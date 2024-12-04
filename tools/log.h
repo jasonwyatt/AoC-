@@ -16,7 +16,7 @@ public:
 
 }
 
-#define LOG_LEVEL(level) (logging::kLogLevel = level)
+#define LOG_LEVEL(level) (logging::Level::kLogLevel = level)
 
 #define DEBUG(str, ...) \
     do { \
