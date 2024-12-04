@@ -136,19 +136,6 @@ void part1(std::ifstream& file) {
     std::cout << "Part1: " << total << std::endl;
 }
 
-/*
-....XXMAS.
-.SAMXMS...
-...S..A...
-..A.A.MS.X
-XMASAMX.MM
-X.....XA.A
-S.S.S.S.SS
-.A.A.A.A.A
-..M.M.M.MM
-.X.X.XMASX
-*/
-
 void part2(std::ifstream& file) {
     std::vector<std::string> lines;
     std::string line;
