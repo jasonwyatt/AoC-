@@ -8,6 +8,7 @@
         "**/Thumbs.db": true,
         "**/bazel-bin": true,
         "**/bazel-aoc++": true,
+        "**/bazel-AoCpp": true,
         "**/bazel-out": true,
         "**/bazel-testlogs": true,
     },
