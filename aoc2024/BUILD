@@ -1,6 +1,6 @@
 days = [
     "day01", "day02", "day03", "day04", "day05", "day06", "day07", "day08", "day09", "day10",
-    "day11",
+    "day11", "day12",
 ]
 
 [
@@ -9,6 +9,7 @@ days = [
         srcs = [day + ".cpp"],
         deps = [
             "//tools",
+            "//tools/math",
             "@abseil-cpp//absl/container:flat_hash_map",
             "@abseil-cpp//absl/strings",
         ]
