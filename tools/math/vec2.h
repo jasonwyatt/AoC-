@@ -12,8 +12,10 @@ namespace tools::math {
 template <typename T>
 class Vec2 {
 public:
+    Vec2() : i(0), j(0) {}
     explicit Vec2(T iValue, T jValue) : i(iValue), j(jValue) {}
     explicit Vec2(Vec2<T>& other) : i(other.i), j(other.j) {}
+    explicit Vec2(const Vec2<T>& other) : i(other.i), j(other.j) {}
     explicit Vec2(Vec2<T>&& other) = default;
 
     T i;
@@ -48,6 +50,10 @@ public:
     constexpr Vec2<T> operator+(const Vec2<T>& other) {
         return Vec2<T>(i + other.i, j + other.j);
     }
+    constexpr void operator+=(const Vec2<T>& other) {
+        i += other.i;
+        j += other.j;
+    }
 
     constexpr Vec2<T> operator-(const Vec2<T>& other) {
         return Vec2<T>(i - other.i, j - other.j);
@@ -63,6 +69,15 @@ public:
 
     bool operator!=(const Vec2<T>& other) const {
         return !(*this == other);
+    }
+
+    bool operator<(const Vec2<T>& other) const {
+        if (i < other.i) {
+            return true;
+        } else if (i == other.i) {
+            return j < other.j;
+        }
+        return false;
     }
 
     std::string toString() {
