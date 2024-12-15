@@ -4,6 +4,7 @@
 #include <cmath>
 #include <cstddef>
 #include <ostream>
+#include <sstream>
 #include <string>
 
 namespace tools::math {
@@ -13,6 +14,7 @@ class Vec2 {
 public:
     explicit Vec2(T iValue, T jValue) : i(iValue), j(jValue) {}
     explicit Vec2(Vec2<T>& other) : i(other.i), j(other.j) {}
+    explicit Vec2(Vec2<T>&& other) = default;
 
     T i;
     T j;
