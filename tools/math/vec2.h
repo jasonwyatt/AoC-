@@ -15,13 +15,13 @@ public:
     Vec2() : i(0), j(0) {}
     explicit Vec2(T iValue, T jValue) : i(iValue), j(jValue) {}
     explicit Vec2(Vec2<T>& other) : i(other.i), j(other.j) {}
-    explicit Vec2(const Vec2<T>& other) : i(other.i), j(other.j) {}
+    Vec2(const Vec2<T>& other) : i(other.i), j(other.j) {}
     explicit Vec2(Vec2<T>&& other) = default;
 
     T i;
     T j;
 
-    T mag() {
+    T mag() const {
         return std::sqrt(i * i + j * j);
     }
 
@@ -55,7 +55,10 @@ public:
         j += other.j;
     }
 
-    constexpr Vec2<T> operator-(const Vec2<T>& other) {
+    constexpr const Vec2<T> operator-(const Vec2<T>& other) {
+        return Vec2<T>(i - other.i, j - other.j);
+    }
+    Vec2<T> operator-(Vec2<T>& other) const {
         return Vec2<T>(i - other.i, j - other.j);
     }
 
@@ -78,6 +81,12 @@ public:
             return j < other.j;
         }
         return false;
+    }
+
+    Vec2<T>& operator=(const Vec2<T>& other) {
+        i = other.i;
+        j = other.j;
+        return *this;
     }
 
     std::string toString() {
