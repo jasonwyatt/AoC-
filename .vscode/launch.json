@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug 2024 Day18",
+            "program": "${workspaceFolder}/bazel-bin/aoc2024/day18",
+            "args": [
+                "${workspaceFolder}/aoc2024/data/day18.txt"
+            ],
+            "sourceMap": { ".": "${workspaceFolder}" },
+            "cwd": "${workspaceFolder}"
+        },
+    ]
+}
