@@ -1,11 +1,9 @@
 #ifndef _TOOLS_ALL_H
 #define _TOOLS_ALL_H
 
-// NOLINTBEGIN(unused-includes)
-#include "tools/io.h"
-#include "tools/log.h"
-#include "tools/main.h"
-#include "tools/math/vec2.h"
-// NOLINTEND(unused-includes)
+#include "tools/io.h" // IWYU pragma: keep
+#include "tools/log.h" // IWYU pragma: keep
+#include "tools/main.h" // IWYU pragma: keep
+#include "tools/math/vec2.h" // IWYU pragma: keep
 
 #endif

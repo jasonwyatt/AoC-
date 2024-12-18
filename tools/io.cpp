@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+#include "absl/strings/str_split.h"
+
 std::vector<std::string> tools::readLines(std::istream& in) {
     auto lambda = [](std::string line) {
         return line;

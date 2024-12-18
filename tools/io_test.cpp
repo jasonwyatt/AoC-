@@ -1,7 +1,7 @@
 #include "tools/io.h"
 
 #include <vector>
-#include <strstream>
+#include <strstream> // IWYU pragma: keep
 
 #include "gtest/gtest.h"
 
