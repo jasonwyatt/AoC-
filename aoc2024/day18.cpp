@@ -5,10 +5,7 @@
 #include <map>
 #include <queue>
 
-#include "absl/strings/str_split.h"
-#include "tools/log.h"
-#include "tools/main.h"
-#include "tools/math/vec2.h"
+#include "tools/all.h"
 
 using namespace tools::math;
 
@@ -48,11 +45,14 @@ Grid parse(std::ifstream& in, int width, int height, int max) {
     result.width = width;
     result.height = height;
 
-    std::string line;
-    for (int i = 0; i < max && std::getline(in, line); i++) {
-        std::vector<std::string> parts = absl::StrSplit(line, ",");
+    int i = 0;
+    auto lambda = [&](std::string line) {
+        auto parts = tools::split(line, ",");
         result.corrupted.insert(Vec2<int>(stoi(parts[0]), stoi(parts[1])));
-    }
+        i++;
+        return i < max;
+    };
+    tools::readLines(in, lambda);
 
     return result;
 }
@@ -193,12 +193,12 @@ void part2(std::ifstream& in) {
         .width = dest.i + 1,
         .height = dest.j + 1,
     };
-    std::vector<Vec2<int>> bytes;
-    std::string line;
-    while (std::getline(in, line)) {
-        std::vector<std::string> parts = absl::StrSplit(line, ",");
-        bytes.push_back(Vec2<int>(stoi(parts[0]), stoi(parts[1])));
-    }
+
+    auto lambda = [](std::string line) {
+        auto parts = tools::split(line, ",");
+        return Vec2<int>(stoi(parts[0]), stoi(parts[1]));
+    };
+    std::vector<Vec2<int>> bytes = tools::interpretLines<Vec2<int>>(in, lambda);
 
     for (int i = 0; i < bytes.size(); i++) {
         std::vector<Vec2<int>> testItems(bytes.begin(), bytes.begin() + i);

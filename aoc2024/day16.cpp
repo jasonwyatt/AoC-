@@ -4,6 +4,7 @@
 #include <tuple>
 #include <map>
 
+#include "tools/io.h"
 #include "tools/log.h"
 #include "tools/main.h"
 #include "tools/math/vec2.h"
@@ -86,8 +87,7 @@ void part1(std::ifstream& in) {
     Vec2<int> end;
 
     int i = 0;
-    std::string line;
-    while (std::getline(in, line)) {
+    auto reader = [&](std::string line) {
         for (int j = 0; j < line.size(); j++) {
             Vec2<int> position(i, j);
             if (line[j] == '#') {
@@ -101,7 +101,9 @@ void part1(std::ifstream& in) {
             }
         }
         i++;
-    }
+        return true;
+    };
+    tools::readLines(in, reader);
 
     long minScore = LONG_MAX;
     Visited visited;
@@ -149,8 +151,7 @@ void part2(std::ifstream& in) {
     Vec2<int> end;
 
     int i = 0;
-    std::string line;
-    while (std::getline(in, line)) {
+    auto reader = [&](std::string line) {
         for (int j = 0; j < line.size(); j++) {
             Vec2<int> position(i, j);
             if (line[j] == '#') {
@@ -164,7 +165,9 @@ void part2(std::ifstream& in) {
             }
         }
         i++;
-    }
+        return true;
+    };
+    tools::readLines(in, reader);
 
     long minScore = LONG_MAX;
     Visited visited;

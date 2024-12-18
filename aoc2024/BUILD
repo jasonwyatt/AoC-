@@ -8,8 +8,7 @@ days = [
         name = day,
         srcs = [day + ".cpp"],
         deps = [
-            "//tools",
-            "//tools/math",
+            "//tools:all",
             "@abseil-cpp//absl/container:flat_hash_map",
             "@abseil-cpp//absl/strings",
         ]

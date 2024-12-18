@@ -1,30 +1,39 @@
 #include "tools/io.h"
 
-#include <fstream>
+#include <istream>
+#include <iostream>
 #include <vector>
 
-tools::CharGrid tools::readCharGrid(std::ifstream &in) {
-    std::string line;
-    tools::CharGrid grid;
-    while (std::getline(in, line)) {
-        std::vector<char> chars;
-        for (char c : line) {
-            chars.push_back(c);
-        }
-        grid.push_back(chars);
-    }
-    return grid;
+std::vector<std::string> tools::readLines(std::istream& in) {
+    auto lambda = [](std::string line) {
+        return line;
+    };
+    return tools::interpretLines<std::string>(in, lambda);
 }
 
-tools::IntGrid tools::readIntGrid(std::ifstream &in) {
-    std::string line;
-    tools::IntGrid grid;
-    while (std::getline(in, line)) {
-        std::vector<int> ints;
-        for (char c : line) {
-            ints.push_back(c - '0');
-        }
-        grid.push_back(ints);
+tools::CharGrid tools::readCharGrid(std::istream &in) {
+  auto lambda = [](std::string line) {
+    std::vector<char> chars;
+    for (char c : line) {
+      chars.push_back(c);
     }
-    return grid;
+    return chars;
+  };
+  return tools::interpretLines<std::vector<char>>(in, lambda);
+}
+
+tools::IntGrid tools::readIntGrid(std::istream &in) {
+  auto lambda = [](std::string line) {
+    std::vector<int> ints;
+    for (char c : line) {
+      ints.push_back(c - '0');
+    }
+    return ints;
+  };
+  return tools::interpretLines<std::vector<int>>(in, lambda);
+}
+
+std::vector<std::string> tools::split(std::string str, std::string delim) {
+  std::vector<std::string> split = absl::StrSplit(str, delim);
+  return split;
 }
