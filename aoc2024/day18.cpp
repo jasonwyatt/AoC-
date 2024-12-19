@@ -180,9 +180,13 @@ void part1(std::ifstream& in) {
     Grid grid = parse(in, dest.i + 1, dest.j + 1, maxRead);
 
     int min = INT_MAX;
+    std::vector<Vec2i>* bestPath;
     auto paths = getPaths(grid);
     for (auto path : paths) {
-        min = std::min(min, (int) path.size());
+        if (path.size() < min) {
+            min = path.size();
+            bestPath = &path;
+        }
     }
 
     INFO("Part 1: %d", min);
