@@ -23,5 +23,16 @@
             "sourceMap": { ".": "${workspaceFolder}" },
             "cwd": "${workspaceFolder}"
         },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug 2024 Day20",
+            "program": "${workspaceFolder}/bazel-bin/aoc2024/day20",
+            "args": [
+                "${workspaceFolder}/aoc2024/data/day20.txt"
+            ],
+            "sourceMap": { ".": "${workspaceFolder}" },
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }

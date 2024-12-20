@@ -58,7 +58,7 @@ public:
     constexpr const Vec2<T> operator-(const Vec2<T>& other) {
         return Vec2<T>(i - other.i, j - other.j);
     }
-    Vec2<T> operator-(Vec2<T>& other) const {
+    Vec2<T> operator-(const Vec2<T>& other) const {
         return Vec2<T>(i - other.i, j - other.j);
     }
 
