@@ -97,7 +97,7 @@ void part1(std::ifstream& in) {
         for (auto dir : dirs) {
             auto firstLoc = pathLoc + dir;
             auto secondLoc = firstLoc + dir;
-            if (context.isValidStart(firstLoc) && context.isValidEnd(secondLoc)) {
+            if (context.isValid(firstLoc) && context.isValidEnd(secondLoc)) {
                 int endPathIndex = context.pathIndices[secondLoc];
                 int savings = endPathIndex - i - 2;
                 if (savings > 0) {
@@ -119,8 +119,8 @@ void part2(std::ifstream& in) {
     int count = 0;
     for (int i = 0; i < context.path.size(); i++) {
         auto firstLoc = context.path[i];
-        for (int dy = -21; dy <= 21; dy++) {
-            for (int dx = -21; dx <= 21; dx++) {
+        for (int dy = -20; dy <= 20; dy++) {
+            for (int dx = -20; dx <= 20; dx++) {
                 auto secondLoc = firstLoc + Vec2i(dx, dy);
                 if (context.isValidCheat(firstLoc, secondLoc)) {
                     auto dir = secondLoc - firstLoc;

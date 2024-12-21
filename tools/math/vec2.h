@@ -25,6 +25,10 @@ public:
         return std::sqrt(i * i + j * j);
     }
 
+    T manhattanMag() const {
+        return abs(i) + abs(j);
+    }
+
     T dot(const Vec2<T>& other) {
         return i * other.i + j * other.j;
     }

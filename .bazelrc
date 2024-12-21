@@ -1,5 +1,4 @@
 build --action_env=BAZEL_CXXOPTS="-std=c++20"
 build --cxxopt=-std=c++20
-build --copt=-O3
 build --compilation_mode=dbg
 test --cxxopt=-std=c++20
